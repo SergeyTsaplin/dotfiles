@@ -18,7 +18,6 @@ function editable(filename)
     if extension then
         -- ".bar" -> "bar"
         extension = extension:sub(2)
-        wezterm.log_info(string.format("extension is [%s]", extension))
         local binary_extensions = {
             jpg = true,
             jpeg = true,
