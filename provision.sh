@@ -12,7 +12,7 @@ _mise_global_tools="python pre-commit uv jq yq"
 xcode-select --install
 
 # Install Homebrew
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsS ${HOMEBREW_INSTALLATION_SCRIPT_URL})"
+/bin/bash -c "$(curl -fsS ${HOMEBREW_INSTALLATION_SCRIPT_URL})"
 
 # Install Homebrew packages
 brew update && brew upgrade
