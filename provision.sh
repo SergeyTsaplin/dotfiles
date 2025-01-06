@@ -6,7 +6,8 @@ DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-$_default_dotfiles_repo_url}
 HOMEBREW_INSTALLATION_SCRIPT_URL=${HOMEBREW_INSTALLATION_SCRIPT_URL:-$_default_hb_script_url}
 INSTALL_EXTRAS=${INSTALL_EXTRAS:-false}
 INSTALL_MISE_TOOLS=${INSTALL_MISE_TOOLS:-false}
-BREW_PATH=/opt/homebrew/bin/brew
+BREW_PATH=/opt/homebrew/bin
+BREW_BIN=${BREW_PATH}/brew
 _extra_casks="rancher"
 _mise_global_tools="python pre-commit uv jq yq"
 
@@ -15,6 +16,7 @@ xcode-select --install
 # Install Homebrew
 if [ ! -f ${BREW_PATH} ]; then
     /bin/bash -c "$(curl -fsS ${HOMEBREW_INSTALLATION_SCRIPT_URL})"
+    
 fi
 
 # Install Homebrew packages
