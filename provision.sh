@@ -16,7 +16,7 @@ xcode-select --install
 # Install Homebrew
 if [ ! -f ${BREW_PATH} ]; then
     /bin/bash -c "$(curl -fsS ${HOMEBREW_INSTALLATION_SCRIPT_URL})"
-    
+    export PATH=${BREW_PATH}:${PATH}
 fi
 
 # Install Homebrew packages
