@@ -26,7 +26,7 @@ fi
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 echo ".cfg" >> .gitignore
-echo ".cfg" >> README.md
+echo "README.md" >> .gitignore
 git clone --bare $DOTFILES_REPO_URL $HOME/.cfg
 config checkout
 config config --local status.showUntrackedFiles no
