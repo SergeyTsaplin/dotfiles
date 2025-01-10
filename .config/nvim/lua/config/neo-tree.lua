@@ -6,7 +6,6 @@ neotree.setup({
     "filesystem",
     "buffers",
     "git_status",
-    "plugins.git_files_only",
   },
   filesystem = {
     filtered_items = {

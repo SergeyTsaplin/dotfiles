@@ -4,3 +4,4 @@ function init_docker
         fish_add_path -pmg "$HOME/.rd/bin"
     end
 end
+
