@@ -1,0 +1,12 @@
+[tools]
+ast-grep = "latest"
+bat = "latest"
+fd = "latest"
+fzf = "latest"
+go = "latest"
+jq = "latest"
+lazygit = "latest"
+lua = "5.1"
+node = "latest"
+tree-sitter = "latest"
+yq = "latest"
