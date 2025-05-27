@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -14,16 +15,31 @@ config.initial_cols = 120
 config.initial_rows = 28
 
 config.keys = {
-  {
-    key = '\\',
-    mods = 'CMD',
-    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-  },
-  {
-    key = '-',
-    mods = 'CMD',
-    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-  },
+	{
+		key = "\\",
+		mods = "CMD",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "-",
+		mods = "CMD",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "w",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
+	{
+		key = "W",
+		mods = "CMD",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
+	{
+		key = "P",
+		mods = "CMD",
+		action = wezterm.action.ActivateCommandPalette,
+	},
 }
 
 -- and finally, return the configuration to wezterm
