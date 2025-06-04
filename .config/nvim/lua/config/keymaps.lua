@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local map = LazyVim.safe_keymap_set
+local map = vim.keymap.set
 
 map("n", "<leader>r", function()
   vim.lsp.buf.rename()
@@ -20,3 +20,6 @@ end, { desc = "Toggle Summary (Neotest)" })
 map("n", "<leader>to", function()
   require("neotest").output_panel.toggle()
 end, { desc = "Toggle Output Panel (Neotest)" })
+map("n", "<leader>gg", function()
+  Snacks.lazygit({ cwd = LazyVim.root.git() })
+end, { desc = "Lazygit (Root Dir)" })
