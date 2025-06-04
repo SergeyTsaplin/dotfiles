@@ -55,38 +55,6 @@ return {
       },
     },
   },
-
-  {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-neotest/neotest-python",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      local neotest_python_opts = {
-        runner = "pytest",
-        python = ".venv/bin/python",
-        is_test_file = function(file_path)
-          return file_path:match("test_.*%.py$")
-        end,
-        pytest_discover_instances = true,
-      }
-      require("neotest").setup({
-        adapters = {
-          require("neotest-python")({
-            dap = { justMyCode = false },
-            python = neotest_python_opts.python,
-            args = {
-              "--cov=.",
-              "--cov-report=json:" .. vim.fn.getcwd() .. "/coverage.out",
-              "--cov-report=term-missing",
-              "--disable-warnings",
-            },
-          }),
-        },
-      })
-    end,
-  },
   {
     "andythigpen/nvim-coverage",
     lazy = true,
