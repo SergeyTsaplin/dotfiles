@@ -1,6 +1,3 @@
--- local go = require("plugins.lang.go")
--- local python = require("plugins.lang.python")
-
 local golangci_config_filepath_cache = nil
 
 local function golangci_config()
@@ -106,7 +103,7 @@ local plugins = {
       formatters_by_ft = {
         go = { "goimports", "gci", "gofumpt", "golines" },
         python = { "ruff_format", "ruff_organize_imports" },
-        typespec = { "tsp_server" },
+        typespec = { "tsp" },
       },
       formatters = {
         goimports = {
@@ -316,6 +313,29 @@ local plugins = {
         },
       },
     },
+  },
+  -- DAP
+  {
+    "mfussenegger/nvim-dap",
+    lazy = true,
+    dependencies = {
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = {
+          "mason-org/mason.nvim",
+        },
+        opts = {
+          ensure_installed = { "debugpy" },
+        },
+      },
+      "leoluz/nvim-dap-go",
+      "mfussenegger/nvim-dap-python",
+    },
+    --   opts = {
+    --     -- configurations = {
+    --     --   go = {},
+    --     -- },
+    --   },
   },
 }
 
