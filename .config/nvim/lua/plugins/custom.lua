@@ -103,7 +103,6 @@ local plugins = {
       formatters_by_ft = {
         go = { "goimports", "gci", "gofumpt", "golines" },
         python = { "ruff_format", "ruff_organize_imports" },
-        typespec = { "tsp" },
       },
       formatters = {
         goimports = {
@@ -323,9 +322,10 @@ local plugins = {
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = {
           "mason-org/mason.nvim",
-        },
-        opts = {
-          ensure_installed = { "debugpy" },
+          opts = function(_, opts)
+            opts.ensure_installed = opts.ensure_installed or {}
+            vim.list_extend(opts.ensure_installed, { "debugpy" })
+          end,
         },
       },
       "leoluz/nvim-dap-go",

@@ -1,7 +1,5 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
-local mux = wezterm.mux
-
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -10,6 +8,7 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Mocha (Gogh)"
 config.font = wezterm.font_with_fallback({ "FiraCode Nerd Font Mono", "Monaco" })
+config.hide_tab_bar_if_only_one_tab = true
 
 config.initial_cols = 120
 config.initial_rows = 28
