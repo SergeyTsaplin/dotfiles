@@ -8,7 +8,10 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Mocha (Gogh)"
 config.font = wezterm.font_with_fallback({ "FiraCode Nerd Font Mono", "Monaco" })
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+-- All possible triples can be found here https://doc.rust-lang.org/nightly/rustc/platform-support.html
+if not (wezterm.target_triple == "x86_64-apple-darwin" or wezterm.target_triple == "aarch64-apple-darwin") then
+	config.window_decorations = "RESIZE"
+end
 
 config.initial_cols = 120
 config.initial_rows = 28
@@ -38,6 +41,11 @@ config.keys = {
 		key = "P",
 		mods = "CMD",
 		action = wezterm.action.ActivateCommandPalette,
+	},
+	{
+		key = "F",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.ToggleFullScreen,
 	},
 }
 
