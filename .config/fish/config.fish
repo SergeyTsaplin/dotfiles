@@ -4,9 +4,10 @@ source $HOME/.config/fish/helpers/mise.fish
 init_homebrew
 init_docker
 init_mise
+init_starship
 
 if test -n "$WEZTERM_EXECUTABLE_DIR"
     fish_add_path -amg "$WEZTERM_EXECUTABLE_DIR"
 end
 
-set --export EDITOR /usr/local/bin/nvim
+set --export EDITOR nvim
