@@ -12,4 +12,9 @@ return {
 			require("plugins.configs.treesitter")
 		end,
 	},
+	{
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		opts = require("plugins.configs.telescope"),
+	},
 }
